@@ -1,9 +1,9 @@
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:news/view/home/offfers.dart';
-import 'package:news/view/home/profile.dart';
+import 'package:news/view/home/livetv.dart';
+import 'package:news/view/home/bookmark.dart';
+import 'package:news/view/home/radio.dart';
 import 'package:news/view/home/video.dart';
-import 'home.dart';
+import 'article.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -14,7 +14,13 @@ class _MenuState extends State<Menu> {
   int _selectedIndex = 0;
   PageController _pageController = PageController();
 
-  static List<Widget> _screen = <Widget>[Home(), Video(), Offers(), Profile()];
+  static List<Widget> _screen = <Widget>[
+    Article(),
+    Video(),
+    Bookmark(),
+    Radios(),
+    LiveTV()
+  ];
 
   void _onPageChanged(int index) {
     setState(() {
@@ -54,6 +60,11 @@ class _MenuState extends State<Menu> {
           BottomNavigationBarItem(
             icon: Icon(Icons.radio_outlined),
             title: Text("Radio", style: TextStyle(fontWeight: FontWeight.w600)),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.live_tv_outlined),
+            title:
+                Text("Live TV", style: TextStyle(fontWeight: FontWeight.w600)),
           )
         ],
         currentIndex: _selectedIndex,
